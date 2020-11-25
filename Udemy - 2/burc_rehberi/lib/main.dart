@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.pink,
       ),
-      initialRoute: "/burcListesi",
+      initialRoute: "burcListesi",
       routes: {
         "/": (context) => BurcListesi(),
-        "/burcListesi": (context) => BurcListesi(),
+        "burcListesi": (context) => BurcListesi(), // no pop
+        "/burcListesi": (context) => BurcListesi(), // with pop
       },
       onGenerateRoute: (RouteSettings settings) {
         List<String> pathElements = settings.name.split("/");
