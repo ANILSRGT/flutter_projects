@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_moda/detay.dart';
 
 void main() {
   runApp(ModaApp());
@@ -44,6 +46,45 @@ class _AnaSayfaState extends State<AnaSayfa> {
           ),
         ],
       ),
+      bottomNavigationBar: Material(
+        color: Colors.white,
+        child: DefaultTabController(
+          length: 4,
+          child: TabBar(
+            indicatorColor: Colors.transparent,
+            tabs: [
+              Tab(
+                icon: Icon(
+                  Icons.more,
+                  color: Colors.grey,
+                  size: 22,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.grey,
+                  size: 22,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.navigation,
+                  color: Colors.black,
+                  size: 22,
+                ),
+              ),
+              Tab(
+                icon: Icon(
+                  Icons.supervised_user_circle,
+                  color: Colors.grey,
+                  size: 22,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: ListView(
         padding: EdgeInsets.only(top: 10),
         children: <Widget>[
@@ -75,9 +116,8 @@ class _AnaSayfaState extends State<AnaSayfa> {
             child: Material(
               borderRadius: BorderRadius.circular(16),
               elevation: 4,
-              color: Colors.blue,
               child: Container(
-                height: 450,
+                height: 500,
                 width: double.infinity,
                 padding: EdgeInsets.all(16),
                 child: Column(
@@ -126,6 +166,193 @@ class _AnaSayfaState extends State<AnaSayfa> {
                           Icons.more_vert,
                           color: Colors.grey,
                           size: 22,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 15),
+                    Text(
+                      "This official website features a ribbed knit zipper jacket that is"
+                      "modern and stylish. It looks very temparament and is recommend to friends",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontFamily: 'Montserrat',
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Detay(imgPath: 'assets/images/modelgrid1.jpeg'),
+                            ));
+                          },
+                          child: Hero(
+                            tag: 'assets/images/modelgrid1.jpeg',
+                            child: Container(
+                              height: 200,
+                              width: (MediaQuery.of(context).size.width - 50) / 2,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                image: DecorationImage(
+                                  image: AssetImage("assets/images/modelgrid1.jpeg"),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Column(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Detay(imgPath: 'assets/images/modelgrid2.jpeg'),
+                                ));
+                              },
+                              child: Hero(
+                                tag: 'assets/images/modelgrid2.jpeg',
+                                child: Container(
+                                  height: 95,
+                                  width: (MediaQuery.of(context).size.width - 100) / 2,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/modelgrid2.jpeg"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Detay(imgPath: 'assets/images/modelgrid3.jpeg'),
+                                ));
+                              },
+                              child: Hero(
+                                tag: 'assets/images/modelgrid3.jpeg',
+                                child: Container(
+                                  height: 95,
+                                  width: (MediaQuery.of(context).size.width - 100) / 2,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    image: DecorationImage(
+                                      image: AssetImage("assets/images/modelgrid3.jpeg"),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Container(
+                          height: 25,
+                          width: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.brown.withOpacity(0.2),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "# Louis Vuitton",
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 10,
+                                color: Colors.brown,
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Container(
+                          height: 25,
+                          width: 75,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.brown.withOpacity(0.2),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "# Chloe",
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 10,
+                                color: Colors.brown,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Divider(),
+                    SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.reply,
+                                textDirection: TextDirection.rtl,
+                                color: Colors.brown.withOpacity(0.2),
+                                size: 30,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "1.7k",
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 16,
+                                ),
+                              ),
+                              SizedBox(width: 25),
+                              Icon(
+                                Icons.comment,
+                                color: Colors.brown.withOpacity(0.2),
+                                size: 30,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "325",
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                                size: 30,
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "2.3k",
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
