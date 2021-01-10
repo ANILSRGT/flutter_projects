@@ -1,9 +1,11 @@
-import 'package:flutter_lovers/models/muser.dart';
+import 'package:flutter_lovers/model/user.dart';
 
 abstract class AuthBase {
-  MUser currentUser();
-  Future<MUser> signInAnonymously();
+  Future<User> currentUser();
+  Future<User> singInAnonymously();
   Future<bool> signOut();
-  Future<MUser> signInWithGoogle();
-  Future<MUser> signInWithFacebook();
+  Future<User> signInWithGoogle();
+  Future<User> signInWithFacebook();
+  Future<User> signInWithEmailandPassword(String email, String sifre);
+  Future<User> createUserWithEmailandPassword(String email, String sifre);
 }

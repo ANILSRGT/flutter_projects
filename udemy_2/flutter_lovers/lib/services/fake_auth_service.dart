@@ -1,11 +1,12 @@
-import 'package:flutter_lovers/models/muser.dart';
+import 'package:flutter_lovers/model/user.dart';
 import 'package:flutter_lovers/services/auth_base.dart';
 
-class FakeAuthService implements AuthBase {
-  final userID = "12401920123589104582093850293";
+class FakeAuthenticationService implements AuthBase {
+  String userID = "123123123123123213123123123";
+
   @override
-  MUser currentUser() {
-    return MUser(userID: userID);
+  Future<User> currentUser() async {
+    return await Future.value(User(userID: userID, email: "fakeuser@fake.com"));
   }
 
   @override
@@ -14,13 +15,41 @@ class FakeAuthService implements AuthBase {
   }
 
   @override
-  Future<MUser> signInAnonymously() async {
-    return await Future.delayed(Duration(seconds: 2), () => MUser(userID: userID));
+  Future<User> singInAnonymously() async {
+    return await Future.delayed(Duration(seconds: 2),
+        () => User(userID: userID, email: "fakeuser@fake.com"));
   }
 
   @override
-  Future<MUser> signInWithGoogle() {
-    // TODO: implement signInWithGoogle
-    throw UnimplementedError();
+  Future<User> signInWithGoogle() async {
+    return await Future.delayed(
+        Duration(seconds: 2),
+        () =>
+            User(userID: "google_user_id_123456", email: "fakeuser@fake.com"));
+  }
+
+  @override
+  Future<User> signInWithFacebook() async {
+    return await Future.delayed(
+        Duration(seconds: 2),
+        () => User(
+            userID: "facebook_user_id_123456", email: "fakeuser@fake.com"));
+  }
+
+  @override
+  Future<User> createUserWithEmailandPassword(
+      String email, String sifre) async {
+    return await Future.delayed(
+        Duration(seconds: 2),
+        () =>
+            User(userID: "created_user_id_123456", email: "fakeuser@fake.com"));
+  }
+
+  @override
+  Future<User> signInWithEmailandPassword(String email, String sifre) async {
+    return await Future.delayed(
+        Duration(seconds: 2),
+        () =>
+            User(userID: "signIn_user_id_123456", email: "fakeuser@fake.com"));
   }
 }
