@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Smart Home UI Challange",
+      title: "Smart Home UI",
       theme: ThemeData(
         textTheme: GoogleFonts.montserratTextTheme(),
       ),
